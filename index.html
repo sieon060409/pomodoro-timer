@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카공포커스 | 카공족을 위한 맞춤형 집중력 타이머 & 백색소음 믹서</title>
+  <meta name="description" content="대학생 카공족을 위한 맞춤형 뽀모도로 집중력 타이머와 백색소음 믹서. 실시간 사운드 합성으로 오프라인에서도 작동하는 빗소리, 파도 소리, 카페 소음을 믹싱해 보세요.">
+  <meta name="keywords" content="카공, 카공족, 뽀모도로 타이머, 백색소음, 집중력, 백색소음 믹서, 빗소리, 파도소리, 카페소리, 공부 타이머">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="카공포커스 | 맞춤형 집중력 타이머 & 백색소음">
+  <meta property="og:description" content="아늑한 베이지 우드 톤의 디자인과 편안한 백색소음 합성기로 공부의 몰입도를 극대화하세요.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1517842645767-c639042777db?q=80&w=1200&auto=format&fit=crop">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="theme-light">
+  <!-- Dynamic background ambient filter -->
+  <div class="ambient-glow" id="ambientGlow"></div>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="logo-area">
+        <!-- Coffee icon SVG -->
+        <svg class="icon-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 8h1a4 4 0 1 1 0 8h-1" />
+          <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z" />
+          <line x1="6" x2="6" y1="2" y2="4" />
+          <line x1="10" x2="10" y1="2" y2="4" />
+          <line x1="14" x2="14" y1="2" y2="4" />
+        </svg>
+        <h1>카공포커스</h1>
+      </div>
+      
+      <div class="controls-header">
+        <!-- Theme Toggle Button -->
+        <button id="themeToggleBtn" class="icon-btn" aria-label="테마 전환" title="테마 전환">
+          <!-- Sun Icon (shown in dark mode) -->
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2" />
+            <path d="M12 20v2" />
+            <path d="m4.93 4.93 1.41 1.41" />
+            <path d="m17.66 17.66 1.41 1.41" />
+            <path d="M2 12h2" />
+            <path d="M20 12h2" />
+            <path d="m6.34 17.66-1.41 1.41" />
+            <path d="m19.07 4.93-1.41 1.41" />
+          </svg>
+          <!-- Moon Icon (shown in light mode) -->
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+          </svg>
+        </button>
+
+        <!-- Settings Toggle Button -->
+        <button id="settingsToggleBtn" class="icon-btn" aria-label="설정" title="설정">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3" />
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Drawer Panel for Settings (Slider Panel) -->
+    <div id="settingsPanel" class="settings-panel hidden">
+      <div class="settings-header">
+        <h3>설정</h3>
+        <button id="settingsCloseBtn" class="close-btn">&times;</button>
+      </div>
+      <div class="settings-body">
+        <div class="setting-item">
+          <label for="dailyGoalInput">하루 목표 횟수</label>
+          <div class="goal-input-container">
+            <input type="number" id="dailyGoalInput" min="1" max="24" value="4">
+            <span>회</span>
+          </div>
+        </div>
+        <div class="setting-item dev-only">
+          <label for="testModeToggle">테스트 모드 (5초 단위)</label>
+          <div class="switch">
+            <input type="checkbox" id="testModeToggle">
+            <span class="slider-switch"></span>
+          </div>
+        </div>
+        <div class="setting-item">
+          <button id="resetDataBtn" class="danger-btn">기록 및 통계 초기화</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Grid Content -->
+    <main class="main-content">
+      <!-- 1. Pomodoro Timer Block -->
+      <section class="card timer-card" aria-labelledby="timerHeading">
+        <h2 id="timerHeading" class="sr-only">뽀모도로 집중 타이머</h2>
+        
+        <div class="timer-mode-selector">
+          <button id="modeWork" class="mode-btn active" data-mode="work">집중시간 (25m)</button>
+          <button id="modeBreak" class="mode-btn" data-mode="break">휴식시간 (5m)</button>
+        </div>
+
+        <div class="timer-display-container">
+          <!-- Circular Progress Ring SVG -->
+          <svg class="progress-ring" viewBox="0 0 200 200">
+            <circle class="progress-ring-bg" cx="100" cy="100" r="88" stroke-width="6" />
+            <circle id="timerProgressRing" class="progress-ring-fill" cx="100" cy="100" r="88" stroke-width="6" />
+          </svg>
+          <div class="timer-text-container">
+            <span id="timerTime" class="timer-time">25:00</span>
+            <span id="timerStatusLabel" class="timer-status">몰입을 시작해 보세요</span>
+          </div>
+        </div>
+
+        <div class="timer-controls">
+          <button id="timerStartBtn" class="btn btn-primary" aria-label="타이머 시작">
+            <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="6 3 20 12 6 21 6 3" />
+            </svg>
+            시작
+          </button>
+          <button id="timerPauseBtn" class="btn btn-secondary hidden" aria-label="타이머 일시정지">
+            <svg class="icon-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="14" x2="14" y1="4" y2="20" />
+              <line x1="10" x2="10" y1="4" y2="20" />
+            </svg>
+            일시정지
+          </button>
+          <button id="timerResetBtn" class="btn btn-outline" aria-label="타이머 리셋">
+            <svg class="icon-reset" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.72 2.78L21 8" />
+              <polyline points="21 3 21 8 16 8" />
+            </svg>
+            리셋
+          </button>
+        </div>
+      </section>
+
+      <!-- 2. White Noise Mixer Block -->
+      <section class="card mixer-card" aria-labelledby="mixerHeading">
+        <h2 id="mixerHeading">백색소음 믹서</h2>
+        <p class="section-desc">브라우저 Web Audio API로 생성되는 생생한 소리들을 조합하여 몰입의 깊이를 더해 보세요.</p>
+        
+        <div class="sound-list">
+          <!-- 1. Rain Sound Row -->
+          <div class="sound-item" id="soundItemRain">
+            <div class="sound-info">
+              <button id="rainToggleBtn" class="sound-toggle-btn" aria-label="빗소리 켜기">
+                <div class="toggle-icon-bg">
+                  <!-- Rain Icon -->
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" />
+                    <path d="M16 14v6" />
+                    <path d="M8 14v6" />
+                    <path d="M12 16v6" />
+                  </svg>
+                </div>
+                <span class="sound-name">빗소리</span>
+              </button>
+            </div>
+            <div class="volume-slider-container">
+              <span class="vol-icon min-vol">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/></svg>
+              </span>
+              <input type="range" id="rainVolume" class="volume-slider" min="0" max="1" step="0.01" value="0.5" aria-label="빗소리 볼륨">
+              <span class="vol-icon max-vol">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+              </span>
+            </div>
+          </div>
+
+          <!-- 2. Waves Sound Row -->
+          <div class="sound-item" id="soundItemWaves">
+            <div class="sound-info">
+              <button id="wavesToggleBtn" class="sound-toggle-btn" aria-label="파도 소리 켜기">
+                <div class="toggle-icon-bg">
+                  <!-- Wave/Wind Icon -->
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 6h8.5a3.5 3.5 0 0 0 0-7H10" />
+                    <path d="M2 12h13.5a3.5 3.5 0 0 1 0 7H14" />
+                    <path d="M2 18h18a2.5 2.5 0 0 0 0-5H18" />
+                  </svg>
+                </div>
+                <span class="sound-name">파도 소리</span>
+              </button>
+            </div>
+            <div class="volume-slider-container">
+              <span class="vol-icon min-vol">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/></svg>
+              </span>
+              <input type="range" id="wavesVolume" class="volume-slider" min="0" max="1" step="0.01" value="0.5" aria-label="파도 소리 볼륨">
+              <span class="vol-icon max-vol">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+              </span>
+            </div>
+          </div>
+
+          <!-- 3. Cafe Sound Row -->
+          <div class="sound-item" id="soundItemCafe">
+            <div class="sound-info">
+              <button id="cafeToggleBtn" class="sound-toggle-btn" aria-label="카페 소리 켜기">
+                <div class="toggle-icon-bg">
+                  <!-- Coffee/Cup Icon -->
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 8h1a4 4 0 1 1 0 8h-1" />
+                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4Z" />
+                    <line x1="6" x2="6" y1="2" y2="4" />
+                    <line x1="10" x2="10" y1="2" y2="4" />
+                    <line x1="14" x2="14" y1="2" y2="4" />
+                  </svg>
+                </div>
+                <span class="sound-name">카페 소음</span>
+              </button>
+            </div>
+            <div class="volume-slider-container">
+              <span class="vol-icon min-vol">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/></svg>
+              </span>
+              <input type="range" id="cafeVolume" class="volume-slider" min="0" max="1" step="0.01" value="0.5" aria-label="카페 소음 볼륨">
+              <span class="vol-icon max-vol">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mixer-status-hint">
+          <p id="mixerAudioHint">🔊 처음 재생 시 브라우저 오디오 권한 필요</p>
+        </div>
+      </section>
+
+      <!-- 3. Statistics and Daily Goal Dashboard -->
+      <section class="card stats-card" aria-labelledby="statsHeading">
+        <h2 id="statsHeading">집중 시간 기록</h2>
+        <div class="stats-grid">
+          <div class="stat-box">
+            <span class="stat-value" id="statsCount">0</span>
+            <span class="stat-label">성공한 세션</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-value" id="statsGoalDisplay">4</span>
+            <span class="stat-label">하루 목표 세션</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-value" id="statsTotalMinutes">0</span>
+            <span class="stat-label">누적 집중 시간(분)</span>
+          </div>
+        </div>
+
+        <div class="progress-section">
+          <div class="progress-header">
+            <span class="progress-label">오늘의 목표 달성률</span>
+            <span class="progress-percent" id="statsGoalPercent">0%</span>
+          </div>
+          <!-- Progress Bar Visualizer -->
+          <div class="progress-bar-container">
+            <div id="statsProgressBar" class="progress-bar" style="width: 0%;">
+              <div class="progress-glow"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic quote or motivation area -->
+        <div class="quote-area">
+          <p id="motivationalQuote">"커피 향과 함께, 당신만의 몰입을 찾아보세요."</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <p>&copy; 2026 카공포커스 (Cafe Focus). All rights reserved.</p>
+      <p class="small-info">수집되는 개인정보나 서버 전송이 없는 100% 로컬 프라이빗 웹앱입니다.</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
